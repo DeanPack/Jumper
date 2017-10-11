@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CharMovement : MonoBehaviour {
 
 	public float speed = 4f;
-	public float height = 300f;
+	public float height = 400f;
 	//A reference to the bullet object so we can replicate it
  	public GameObject bullet;
  	//This is the characters rigidbody, how we access the physics of the character
