@@ -1,4 +1,4 @@
-WindowsStandalone
+WebGL
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9f07aaefd0255462bb6e4f9e5da6b2d4 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -130,6 +130,6 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
-bc820c3708c7456a5343017dbd1636d2 Assembly-CSharp.dll:.CharMovement
 6d37cf9dbc067e76744a33f4cad90aa4 Assembly-CSharp.dll:.BatMovement
 2b5bd81c259c691324a17af9a3e97e85 Assembly-CSharp.dll:.BulletScript
+bc820c3708c7456a5343017dbd1636d2 Assembly-CSharp.dll:.CharMovement
