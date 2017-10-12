@@ -1,0 +1,29 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="BatMovement" preserve="all"/>
+<type fullname="BulletScript" preserve="all"/>
+<type fullname="CharMovement" preserve="all"/>
+<type fullname="followPlayer" preserve="all"/>
+<type fullname="Porcupine" preserve="all"/>
+<type fullname="ReachingTheEdge" preserve="all"/>
+<type fullname="Tiled2Unity.CircleObject" preserve="all"/>
+<type fullname="Tiled2Unity.GPUInstancing" preserve="all"/>
+<type fullname="Tiled2Unity.GroupLayer" preserve="all"/>
+<type fullname="Tiled2Unity.ImportBehaviour" preserve="all"/>
+<type fullname="Tiled2Unity.Layer" preserve="all"/>
+<type fullname="Tiled2Unity.ObjectLayer" preserve="all"/>
+<type fullname="Tiled2Unity.PolygonObject" preserve="all"/>
+<type fullname="Tiled2Unity.PolylineObject" preserve="all"/>
+<type fullname="Tiled2Unity.RectangleObject" preserve="all"/>
+<type fullname="Tiled2Unity.SortingLayerExposed" preserve="all"/>
+<type fullname="Tiled2Unity.SpriteDepthInMap" preserve="all"/>
+<type fullname="Tiled2Unity.TileAnimator" preserve="all"/>
+<type fullname="Tiled2Unity.TiledMap" preserve="all"/>
+<type fullname="Tiled2Unity.TileLayer" preserve="all"/>
+<type fullname="Tiled2Unity.TileObject" preserve="all"/>
+<type fullname="Tiled2Unity.TmxObject" preserve="all"/>
+</assembly>
+<assembly fullname="UnityEngine.Analytics">
+<type fullname="UnityEngine.Analytics.AnalyticsTracker" preserve="all"/>
+</assembly>
+</linker>

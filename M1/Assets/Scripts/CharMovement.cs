@@ -13,12 +13,13 @@ public class CharMovement : MonoBehaviour {
  	//This is the characters rigidbody, how we access the physics of the character
  	public Rigidbody2D rb;
  	public int hasJump = 0;
- 	public bool onGround = true;
+ 	public bool onGround = false;
  	//This reference to the animator allows us to access the animations and state variables
  	public Animator animator;
  	public bool moving = false;
  	private bool facingRight = true;
  	private bool playAnim = false;
+ 	private bool falling = false;
 
  	//this update function is run every frame
      void Update ()
@@ -28,6 +29,7 @@ public class CharMovement : MonoBehaviour {
 		if (rb.velocity.y < -0.1)
  		{
    			animator.SetInteger("State", 3);
+   			falling = true;
  		}
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
          {
@@ -76,7 +78,7 @@ public class CharMovement : MonoBehaviour {
      //This is to make sure that the landing animation finishes before starting another animation
      void changeAnimation(int state)
      {
-		if (onGround && !moving && !playAnim)
+		if (onGround && !moving && !playAnim && !falling)
          {
          	animator.SetInteger("State",state);
          }
@@ -93,6 +95,7 @@ public class CharMovement : MonoBehaviour {
 		if (coll.gameObject.tag == "Platform")
 		{
 			onGround = true;
+			falling = false;
 			animator.SetInteger("State", 4);
 			playAnim = true;
 		}

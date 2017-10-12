@@ -7,7 +7,7 @@ public class Porcupine : MonoBehaviour {
 	//get the player object
 	public GameObject player;
 	public float speed = .05f;
-	public float distance = 2f;
+	public float distance = 3.5f;
 	private bool facingRight = false;
 	public GameObject TurnSensor;
 	private float oldPos;
@@ -47,6 +47,14 @@ public class Porcupine : MonoBehaviour {
      		Vector3 scale = transform.localScale;
      		scale.x *= -1;
      		transform.localScale = scale;
+     	}
+     }
+
+     void OnCollisionEnter2D(Collision2D coll)
+     {
+     	if(coll.gameObject.tag == "enemy")
+     	{
+     		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
      	}
      }
 }
