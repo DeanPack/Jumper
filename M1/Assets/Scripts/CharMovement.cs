@@ -102,7 +102,7 @@ public class CharMovement : MonoBehaviour {
 			Destroy(coll.gameObject);
 		}
 		//If the player hits the death plane, then reset the level
-		if (coll.gameObject.tag == "Respawn" || coll.gameObject.tag == "Enemy")
+		if (coll.gameObject.tag == "Respawn" || coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Spike")
 		{
 			SceneManager.LoadScene("Level1");
 		}
