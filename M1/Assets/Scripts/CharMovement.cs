@@ -59,6 +59,7 @@ public class CharMovement : MonoBehaviour {
          	//Play the jumping animation
 			moving = true;
          }
+		 /*
          if (Input.GetMouseButtonDown(0))
          {
 			Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)- transform.position;
@@ -67,6 +68,7 @@ public class CharMovement : MonoBehaviour {
 			GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction*2 , Quaternion.identity);
  			projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
          }
+		 */
          //If nothing is being pressed, play the idle animation
       	 changeAnimation(0);
      }
@@ -94,12 +96,23 @@ public class CharMovement : MonoBehaviour {
 			animator.SetInteger("State", 4);
 			playAnim = true;
 		}
+		//Pick up a coin
+		if (coll.gameObject.tag == "Coin")
+		{
+			Destroy(coll.gameObject);
+		}
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Respawn" || coll.gameObject.tag == "Enemy")
 		{
 			SceneManager.LoadScene("Level1");
 		}
-     }
+		//The Player has reached the exit
+		if (coll.gameObject.tag == "Finish")
+		{
+			Debug.Log("exit");
+			SceneManager.LoadScene("Level1");
+		}
+	}
 
 	void OnCollisionExit2D(Collision2D coll)
      {
