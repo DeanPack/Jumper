@@ -10,8 +10,17 @@ public class ReachingTheEdge : MonoBehaviour {
 		if (coll.gameObject.tag == "Platform")
 		{
 			turn = true;
-			Debug.Log("WOAH!");
 		}
-		Debug.Log("WOAH!");
 	}
+	void OnCollisionEnter2D(Collision2D coll)
+     {
+     	if(coll.gameObject.tag == "Enemy")
+     	{
+     		turn = true;
+     	}
+		if(coll.gameObject.tag == "Wall")
+     	{
+     		turn = true;
+     	}
+     }
 }
