@@ -52,7 +52,11 @@ public class Porcupine : MonoBehaviour {
 
      void OnCollisionEnter2D(Collision2D coll)
      {
-     	if(coll.gameObject.tag == "enemy")
+     	if(coll.gameObject.tag == "Enemy")
+     	{
+     		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
+     	}
+     	if(coll.gameObject.tag == "Wall")
      	{
      		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
      	}

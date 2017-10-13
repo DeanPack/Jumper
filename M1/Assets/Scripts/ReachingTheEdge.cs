@@ -18,5 +18,9 @@ public class ReachingTheEdge : MonoBehaviour {
      	{
      		turn = true;
      	}
+		if(coll.gameObject.tag == "Wall")
+     	{
+     		turn = true;
+     	}
      }
 }
