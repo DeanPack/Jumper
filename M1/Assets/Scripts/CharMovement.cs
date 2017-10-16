@@ -20,6 +20,18 @@ public class CharMovement : MonoBehaviour {
  	private bool facingRight = true;
  	private bool playAnim = false;
  	private bool falling = false;
+	private HeartSystem heartScript;
+	public GameObject soundHandler;
+	private SoundHandler soundScript;
+	public AudioSource audioSource;
+	public AudioClip[] audioClip;
+
+	void Start()
+	{
+		//Get the heart system
+		heartScript = gameObject.GetComponent<HeartSystem>();
+		soundScript = soundHandler.GetComponent<SoundHandler>();
+	}
 
  	//this update function is run every frame
      void Update ()
@@ -46,11 +58,11 @@ public class CharMovement : MonoBehaviour {
 		 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
          {
              transform.position += Vector3.right * speed * Time.deltaTime;
-             //only play the running animation if the user is on the ground
-             if(onGround)
-             {
+			//only play the running animation if the user is on the ground
+			if (onGround)
+			{
 				changeAnimation(1);
-			 }
+			}
 			moving = true;
 			//flip the animation to face right
 			flip(1);
@@ -98,16 +110,30 @@ public class CharMovement : MonoBehaviour {
 			falling = false;
 			animator.SetInteger("State", 4);
 			playAnim = true;
+			soundScript.PlaySound(1);
 		}
 		//Pick up a coin
 		if (coll.gameObject.tag == "Coin")
 		{
 			Destroy(coll.gameObject);
+			soundScript.PlaySound(2);
 		}
 		//If the player hits the death plane, then reset the level
-		if (coll.gameObject.tag == "Respawn" || coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Spike")
+		if (coll.gameObject.tag == "Respawn")
 		{
 			SceneManager.LoadScene("Level1");
+		}
+		if (coll.gameObject.tag == "Porcupine")
+		{
+			//Take Damage
+			heartScript.takeDamage(-2);
+			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 150);
+		}
+		if (coll.gameObject.tag == "Spike")
+		{
+			//Take Damage
+			heartScript.takeDamage(-1);
+			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 150);
 		}
 		//The Player has reached the exit
 		if (coll.gameObject.tag == "Finish")
@@ -135,13 +161,15 @@ public class CharMovement : MonoBehaviour {
 			hasJump--;
 			onGround = false;
 			animator.SetInteger("State", 2);
-     	}
+			soundScript.PlaySound(0);
+		}
      	if (onGround)
      	{
 			rb.AddForce(Vector3.up * height);
 			onGround = false;
 			animator.SetInteger("State", 2);
-     	}
+			soundScript.PlaySound(0);
+		}
      }
 
      void flip(int direction)
@@ -154,4 +182,8 @@ public class CharMovement : MonoBehaviour {
      		transform.localScale = scale;
      	}
      }
+	void playFootstep()
+	{
+		soundScript.PlaySound(4);
+	}
 }
