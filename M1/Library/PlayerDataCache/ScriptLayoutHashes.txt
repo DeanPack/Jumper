@@ -7,8 +7,10 @@ ce32b7da7f1ee5b50c2ebe9d6c909a9e Assembly-CSharp.dll:.Porcupine
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.PolylineObject
 fab3f48bb6484a76cde2b81e3201be7e Assembly-CSharp.dll:Tiled2Unity.TileObject
 1ac45e65362b8990ca8bc05364d4581e Assembly-CSharp.dll:Tiled2Unity.ImportBehaviour
+32525ff21bf9edba9552d0bc0a3efc6c Assembly-CSharp.dll:.SoundHandler
 2b5bd81c259c691324a17af9a3e97e85 Assembly-CSharp.dll:.followPlayer
 c5b77decb97ffc0c36e810b155d27dde Assembly-CSharp.dll:Tiled2Unity.TiledMap
+14a3565e0c8783e672e1b3815eb8865d Assembly-CSharp.dll:.HeartSystem
 f149f24230a6358c2804c5fae71459a2 Assembly-CSharp.dll:Tiled2Unity.TileAnimator
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.PolygonObject
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.CircleObject
@@ -19,7 +21,7 @@ b6a4e0f46582e1b4ea27adb53405c4c7 Assembly-CSharp.dll:Tiled2Unity.SpriteDepthInMa
 2b5bd81c259c691324a17af9a3e97e85 Assembly-CSharp.dll:.BulletScript
 d290070ecf091336e70150a7db25d112 Assembly-CSharp.dll:Tiled2Unity.ObjectLayer
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.TmxObject
-bc820c3708c7456a5343017dbd1636d2 Assembly-CSharp.dll:.CharMovement
+43a6c583169e1a0cd9d45794a6fe2006 Assembly-CSharp.dll:.CharMovement
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
