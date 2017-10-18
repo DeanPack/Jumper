@@ -165,6 +165,7 @@ public class CharMovement : MonoBehaviour {
      		transform.localScale = scale;
      	}
      }
+
 	void playFootstep()
 	{
 		soundScript.PlaySound(4);
