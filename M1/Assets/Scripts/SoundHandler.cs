@@ -11,6 +11,5 @@ public class SoundHandler : MonoBehaviour {
 	{
 		Audio.clip = audioClips[index];
 		Audio.Play();
-		Debug.Log("Here");
 	}
 }

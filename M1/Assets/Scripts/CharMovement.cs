@@ -13,15 +13,15 @@ public class CharMovement : MonoBehaviour {
  	//This is the characters rigidbody, how we access the physics of the character
  	public Rigidbody2D rb;
  	public int hasJump = 0;
- 	public bool onGround = false;
  	//This reference to the animator allows us to access the animations and state variables
  	public Animator animator;
  	public bool moving = false;
  	private bool facingRight = true;
- 	private bool playAnim = false;
- 	private bool falling = false;
+ 	public bool playAnim = false;
 	private HeartSystem heartScript;
+	private GroundTester groundScript;
 	public GameObject soundHandler;
+	public GameObject groundTester;
 	private SoundHandler soundScript;
 	public AudioSource audioSource;
 	public AudioClip[] audioClip;
@@ -31,6 +31,7 @@ public class CharMovement : MonoBehaviour {
 		//Get the heart system
 		heartScript = gameObject.GetComponent<HeartSystem>();
 		soundScript = soundHandler.GetComponent<SoundHandler>();
+		groundScript = groundTester.GetComponent<GroundTester>();
 	}
 
  	//this update function is run every frame
@@ -41,13 +42,13 @@ public class CharMovement : MonoBehaviour {
 		if (rb.velocity.y < -0.1)
  		{
    			animator.SetInteger("State", 3);
-   			falling = true;
+   			groundScript.falling = true;
  		}
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
          {
              transform.position += Vector3.left * speed * Time.deltaTime;
              //only play the running animation if the user is on the ground
-             if(onGround)
+             if(groundScript.onGround)
              {
              	changeAnimation(1);
              }
@@ -59,7 +60,7 @@ public class CharMovement : MonoBehaviour {
          {
              transform.position += Vector3.right * speed * Time.deltaTime;
 			//only play the running animation if the user is on the ground
-			if (onGround)
+			if (groundScript.onGround)
 			{
 				changeAnimation(1);
 			}
@@ -90,7 +91,7 @@ public class CharMovement : MonoBehaviour {
      //This is to make sure that the landing animation finishes before starting another animation
      void changeAnimation(int state)
      {
-		if (onGround && !moving && !playAnim && !falling)
+		if (groundScript.onGround && !moving && !playAnim && !groundScript.falling)
          {
          	animator.SetInteger("State",state);
          }
@@ -103,15 +104,6 @@ public class CharMovement : MonoBehaviour {
      //This is automatically called when the player enters a collision with an object
      void OnCollisionEnter2D(Collision2D coll)
      {
-     	//If the player lands on a platform, play the landing animation and set onGround to true
-		if (coll.gameObject.tag == "Platform")
-		{
-			onGround = true;
-			falling = false;
-			animator.SetInteger("State", 4);
-			playAnim = true;
-			soundScript.PlaySound(1);
-		}
 		//Pick up a coin
 		if (coll.gameObject.tag == "Coin")
 		{
@@ -143,30 +135,21 @@ public class CharMovement : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D coll)
-     {
-		if (coll.gameObject.tag == "Platform")
-		{
-			onGround = false;
-			moving = false;
-		}
-     }
-
      void jump()
      {
-		if(!onGround && hasJump > 0)
+		if(!groundScript.onGround && hasJump > 0)
 		{
 			rb.velocity = new Vector2(0,0);
 			rb.AddForce(Vector3.up * height);
 			hasJump--;
-			onGround = false;
+			groundScript.onGround = false;
 			animator.SetInteger("State", 2);
 			soundScript.PlaySound(0);
 		}
-     	if (onGround)
+     	if (groundScript.onGround)
      	{
 			rb.AddForce(Vector3.up * height);
-			onGround = false;
+			groundScript.onGround= false;
 			animator.SetInteger("State", 2);
 			soundScript.PlaySound(0);
 		}
