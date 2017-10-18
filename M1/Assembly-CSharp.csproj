@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\BulletScript.cs" />
      <Compile Include="Assets\Scripts\CharMovement.cs" />
      <Compile Include="Assets\Scripts\followPlayer.cs" />
+     <Compile Include="Assets\Scripts\GroundTester.cs" />
      <Compile Include="Assets\Scripts\HeartSystem.cs" />
      <Compile Include="Assets\Scripts\Porcupine.cs" />
      <Compile Include="Assets\Scripts\ReachingTheEdge.cs" />
