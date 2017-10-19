@@ -52,6 +52,10 @@ public class Porcupine : MonoBehaviour {
 
      void OnCollisionEnter2D(Collision2D coll)
      {
+     	if(coll.gameObject.tag == "Player")
+     	{
+     		//maybe if I want it to react to the player later
+     	}
      	if(coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Porcupine")
      	{
      		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;

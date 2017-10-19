@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CharMovement : MonoBehaviour {
 
 	public float speed = 4f;
-	public float height = 400f;
+	public float height = 200f;
 	//A reference to the bullet object so we can replicate it
  	public GameObject bullet;
  	//This is the characters rigidbody, how we access the physics of the character
@@ -25,6 +25,8 @@ public class CharMovement : MonoBehaviour {
 	private SoundHandler soundScript;
 	public AudioSource audioSource;
 	public AudioClip[] audioClip;
+	public int jumpID = 0;
+	public float startTime = 0;
 
 	void Start()
 	{
@@ -41,6 +43,7 @@ public class CharMovement : MonoBehaviour {
      	//This means the character is falling
 		if (rb.velocity.y < -0.1)
  		{
+ 			rb.gravityScale = 1f;
    			animator.SetInteger("State", 3);
    			groundScript.falling = true;
  		}
@@ -68,10 +71,10 @@ public class CharMovement : MonoBehaviour {
 			//flip the animation to face right
 			flip(1);
          }
-		 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
-         {
-         	jump();
-         	//Play the jumping animation
+	 	if (Input.GetKey(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKey(KeyCode.Space))
+       	{
+       		jump((float)Time.time, jumpID);
+       		//Play the jumping animation
 			moving = true;
          }
 		 /*
@@ -119,13 +122,13 @@ public class CharMovement : MonoBehaviour {
 		{
 			//Take Damage
 			heartScript.takeDamage(-2);
-			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 150);
+			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 100);
 		}
 		if (coll.gameObject.tag == "Spike")
 		{
 			//Take Damage
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 150);
+			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 100);
 		}
 		//The Player has reached the exit
 		if (coll.gameObject.tag == "Finish")
@@ -135,21 +138,30 @@ public class CharMovement : MonoBehaviour {
 		}
 	}
 
-     void jump()
+     void jump(float time, int currJump)
      {
-		if(!groundScript.onGround && hasJump > 0)
+		if (groundScript.onGround)
+     	{
+     		startTime = time;
+			groundScript.onGround= false;
+			animator.SetInteger("State", 2);
+			soundScript.PlaySound(0);
+			rb.AddForce(Vector3.up * height);
+			rb.gravityScale = 1f;
+		}
+		//See if the player is still on the same jump
+     	else if(currJump == jumpID && Time.time - startTime < .2)
+     	{
+     		Debug.Log(Time.time - startTime);
+			rb.AddForce(Vector3.up * height * (Time.time - startTime));
+			rb.gravityScale -= .025f;
+     	}
+		else if(!groundScript.onGround && hasJump > 0)
 		{
 			rb.velocity = new Vector2(0,0);
 			rb.AddForce(Vector3.up * height);
 			hasJump--;
 			groundScript.onGround = false;
-			animator.SetInteger("State", 2);
-			soundScript.PlaySound(0);
-		}
-     	if (groundScript.onGround)
-     	{
-			rb.AddForce(Vector3.up * height);
-			groundScript.onGround= false;
 			animator.SetInteger("State", 2);
 			soundScript.PlaySound(0);
 		}
