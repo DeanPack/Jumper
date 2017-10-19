@@ -2583,7 +2583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  height: 400
+  height: 200
   bullet: {fileID: 995144038}
   rb: {fileID: 951466104}
   hasJump: 0
@@ -2594,6 +2594,8 @@ MonoBehaviour:
   groundTester: {fileID: 453895437}
   audioSource: {fileID: 1894389448}
   audioClip: []
+  jumpID: 0
+  startTime: 0
 --- !u!61 &951466106
 BoxCollider2D:
   m_ObjectHideFlags: 0

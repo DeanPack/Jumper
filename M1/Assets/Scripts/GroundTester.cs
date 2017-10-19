@@ -29,6 +29,7 @@ public class GroundTester : MonoBehaviour {
 			animator.SetInteger("State", 4);
 			charScript.playAnim = true;
 			soundScript.PlaySound(1);
+			charScript.jumpID++;
 		}
 	}
 	void OnCollisionExit2D(Collision2D coll)
