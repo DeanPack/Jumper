@@ -27,7 +27,6 @@ public class CharMovement : MonoBehaviour {
 	public AudioClip[] audioClip;
 	public int jumpID = 0;
 	public float startTime = 0;
-	private bool hasGun = false;
 
 	void Start()
 	{
@@ -78,19 +77,18 @@ public class CharMovement : MonoBehaviour {
        		//Play the jumping animation
 			moving = true;
          }
-		if (hasGun)
-		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-				direction.Normalize();
-				//Spawn the bullet in front of the player
-				GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction * 2, Quaternion.identity);
-				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
-			}
-			//If nothing is being pressed, play the idle animation
-			changeAnimation(0);
-		}
+		 /*
+         if (Input.GetMouseButtonDown(0))
+         {
+			Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)- transform.position;
+ 			direction.Normalize();
+ 			//Spawn the bullet in front of the player
+			GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction*2 , Quaternion.identity);
+ 			projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
+         }
+		 */
+         //If nothing is being pressed, play the idle animation
+      	 changeAnimation(0);
      }
 
      //This is to make sure that the landing animation finishes before starting another animation
@@ -114,12 +112,6 @@ public class CharMovement : MonoBehaviour {
 		{
 			Destroy(coll.gameObject);
 			soundScript.PlaySound(2);
-		}
-		//Pick up a gun
-		if (coll.gameObject.tag == "Gun")
-		{
-			Destroy(coll.gameObject);
-			hasGun = true;
 		}
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Respawn")

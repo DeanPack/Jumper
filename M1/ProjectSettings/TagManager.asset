@@ -11,7 +11,6 @@ TagManager:
   - Spike
   - Wall
   - Porcupine
-  - Gun
   layers:
   - Default
   - TransparentFX

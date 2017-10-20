@@ -397,6 +397,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &83449723
 =======
 --- !u!1 &65858361
@@ -624,6 +625,8 @@ BoxCollider2D:
 >>>>>>> f91a502eaed92deedf61871371d4b847fff14fc8
 =======
 >>>>>>> parent of f91a502... Level 2
+=======
+>>>>>>> parent of a896afc... test
 --- !u!1 &88214194
 GameObject:
   m_ObjectHideFlags: 0
