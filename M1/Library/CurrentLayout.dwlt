@@ -45,7 +45,11 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 342}
   m_MaxSize: {x: 12008, y: 8042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 104
+=======
+  controlID: 51
+>>>>>>> parent of db7ecf1... Revert "Level 2"
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,9 +339,15 @@ MonoBehaviour:
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 78260000
     m_LastClickedID: 9848
     m_ExpandedIDs: 00000000782600005028000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 54260000
+    m_LastClickedID: 9812
+    m_ExpandedIDs: 000000005426000000ca9a3bffffff7f
+>>>>>>> parent of db7ecf1... Revert "Level 2"
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +375,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000007826000050280000
+=======
+    m_ExpandedIDs: 0000000054260000
+>>>>>>> parent of db7ecf1... Revert "Level 2"
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
