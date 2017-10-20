@@ -77,6 +77,7 @@
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault-Instanced.shader" />
      <None Include="Assets\Tiled2Unity\Imported\Platform Test.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
+     <None Include="Assets\Tiled2Unity\Imported\Level1_2Prototype.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\Level1_1Prototype.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
