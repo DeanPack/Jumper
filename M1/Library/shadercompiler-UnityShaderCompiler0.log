@@ -1,22 +1,2 @@
 Base path: /Applications/Unity/Unity.app/Contents
 Cmd: initializeCompiler
-Cmd: preprocess
-  insize=1939 outsize=610 ok=1
-Cmd: preprocess
-  insize=2643 outsize=742 ok=1
-Cmd: preprocess
-  insize=2137 outsize=670 ok=1
-Cmd: preprocess
-  insize=2309 outsize=745 ok=1
-Cmd: preprocess
-  insize=1892 outsize=678 ok=1
-Cmd: preprocess
-  insize=1455 outsize=568 ok=1
-Cmd: preprocess
-  insize=2400 outsize=751 ok=1
-Cmd: preprocess
-  insize=1717 outsize=615 ok=1
-Cmd: compileSnippet
-  api=15 type=0 insize=2012 outsize=2071 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME ok=1
-Cmd: compileSnippet
-  api=15 type=1 insize=2012 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME ok=1
