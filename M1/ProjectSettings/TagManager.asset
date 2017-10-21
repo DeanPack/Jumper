@@ -11,6 +11,9 @@ TagManager:
   - Spike
   - Wall
   - Porcupine
+  - Gun
+  - breakableWall
+  - HeartContainer
   layers:
   - Default
   - TransparentFX

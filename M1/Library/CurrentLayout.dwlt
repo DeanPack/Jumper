@@ -42,7 +42,7 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 1078
-  m_MinSize: {x: 683, y: 492}
+  m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 9
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 0
     width: 316
     height: 652
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -206,10 +206,10 @@ MonoBehaviour:
     y: 0
     width: 1276
     height: 1078
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10
+  controlID: 94
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -230,10 +230,10 @@ MonoBehaviour:
     y: 0
     width: 1276
     height: 652
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 11
+  controlID: 95
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -325,19 +325,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
-  m_StartGridSize: 64
+  m_StartGridSize: 47
   m_LastFolders:
-  - Assets
-  m_LastFoldersGridSize: -1
+  - Assets/Scripts
+  m_LastFoldersGridSize: 47
   m_LastProjectPath: C:\Users\DeanPa\Documents\GitHub\Jumper\M1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 54260000
-    m_LastClickedID: 9812
-    m_ExpandedIDs: 00000000542600002c28000000ca9a3bffffff7f
+    m_SelectedIDs: c8270000
+    m_LastClickedID: 10184
+    m_ExpandedIDs: 00000000542600002e28000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +365,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000542600002c280000
+    m_ExpandedIDs: 00000000542600002e280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,7 +418,7 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
+    m_GridSize: 47
   m_DirectoriesAreaWidth: 115
 --- !u!114 &14
 MonoBehaviour:
@@ -480,24 +480,24 @@ MonoBehaviour:
     width: 314
     height: 631
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 16f3faff
-    m_LastClickedID: -330986
-    m_ExpandedIDs: c4f4faff4202fbff4402fbff4602fbff9495ffff9695ffff9895ffffa69bffffaa9bffff98d7ffff9ad7ffff72e8ffff14eaffff1afcffff00000000
+    scrollPos: {x: 0, y: 650}
+    m_SelectedIDs: eae5f4ff
+    m_LastClickedID: -727574
+    m_ExpandedIDs: 6645f9ff6845f9ff9245f9ff024ef9ff044ef9ff064ef9ff9cf7ffff9ef7ffffa0f7ffff1afcffff00000000862c0000b2910000fc930000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Porcupine (2)
+      m_OriginalName: Porcupine (2)
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 37884
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -533,14 +533,14 @@ MonoBehaviour:
     width: 956
     height: 631
   m_SceneLighting: 1
-  lastFramingTime: 3403.9715577382594
+  lastFramingTime: 15895.02206175478
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -113.371635, y: 23.254572, z: 0.21875}
+    m_Target: {x: -117.44738, y: 20.985477, z: 0}
     speed: 2
-    m_Value: {x: -113.371635, y: 23.254572, z: 0.21875}
+    m_Value: {x: -117.44738, y: 20.985477, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -567,9 +567,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 16.150862
+    m_Target: 18.164516
     speed: 2
-    m_Value: 16.150862
+    m_Value: 18.164516
   m_Ortho:
     m_Target: 1
     speed: 2

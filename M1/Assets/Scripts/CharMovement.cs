@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CharMovement : MonoBehaviour {
 
 	public float speed = 4f;
-	public float height = 200f;
+	public float height = 250f;
 	//A reference to the bullet object so we can replicate it
  	public GameObject bullet;
  	//This is the characters rigidbody, how we access the physics of the character
@@ -27,6 +27,8 @@ public class CharMovement : MonoBehaviour {
 	public AudioClip[] audioClip;
 	public int jumpID = 0;
 	public float startTime = 0;
+	private bool hasGun = false;
+	private bool canMidair = false;
 
 	void Start()
 	{
@@ -36,32 +38,32 @@ public class CharMovement : MonoBehaviour {
 		groundScript = groundTester.GetComponent<GroundTester>();
 	}
 
- 	//this update function is run every frame
-     void Update ()
-     {
-     	moving = false;
-     	//This means the character is falling
+	//this update function is run every frame
+	void Update()
+	{
+		moving = false;
+		//This means the character is falling
 		if (rb.velocity.y < -0.1)
- 		{
- 			rb.gravityScale = 1f;
-   			animator.SetInteger("State", 3);
-   			groundScript.falling = true;
- 		}
+		{
+			rb.gravityScale = 1f;
+			animator.SetInteger("State", 3);
+			groundScript.falling = true;
+		}
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-         {
-             transform.position += Vector3.left * speed * Time.deltaTime;
-             //only play the running animation if the user is on the ground
-             if(groundScript.onGround)
-             {
-             	changeAnimation(1);
-             }
-             moving = true;
-             //flip the animation to face left
-			 flip(-1);
-         }
-		 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-         {
-             transform.position += Vector3.right * speed * Time.deltaTime;
+		{
+			transform.position += Vector3.left * speed * Time.deltaTime;
+			//only play the running animation if the user is on the ground
+			if (groundScript.onGround)
+			{
+				changeAnimation(1);
+			}
+			moving = true;
+			//flip the animation to face left
+			flip(-1);
+		}
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+		{
+			transform.position += Vector3.right * speed * Time.deltaTime;
 			//only play the running animation if the user is on the ground
 			if (groundScript.onGround)
 			{
@@ -70,23 +72,32 @@ public class CharMovement : MonoBehaviour {
 			moving = true;
 			//flip the animation to face right
 			flip(1);
-         }
-	 	if (Input.GetKey(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W) || Input.GetKey(KeyCode.Space))
-       	{
-       		jump((float)Time.time, jumpID);
-       		//Play the jumping animation
+		}
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
+		{
+			jump((float)Time.time, jumpID);
+			//Play the jumping animation
 			moving = true;
-         }
-		 /*
-         if (Input.GetMouseButtonDown(0))
-         {
-			Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)- transform.position;
- 			direction.Normalize();
- 			//Spawn the bullet in front of the player
-			GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction*2 , Quaternion.identity);
- 			projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
-         }
-		 */
+		}
+		if (Input.GetKeyDown(KeyCode.LeftShift) && !groundScript.onGround && hasJump > 0)
+		{
+			animator.SetInteger("State", 2);
+			soundScript.PlaySound(0);
+			rb.velocity = new Vector2(0, 0);
+			rb.AddForce(Vector3.up * height);
+			hasJump--;
+		}
+		if (hasGun)
+		{
+			if (Input.GetMouseButtonDown(0))
+			{
+				Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+				direction.Normalize();
+				//Spawn the bullet in front of the player
+				GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction * 2, Quaternion.identity);
+				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
+			}
+		}
          //If nothing is being pressed, play the idle animation
       	 changeAnimation(0);
      }
@@ -113,6 +124,11 @@ public class CharMovement : MonoBehaviour {
 			Destroy(coll.gameObject);
 			soundScript.PlaySound(2);
 		}
+		if (coll.gameObject.tag == "Gun")
+		{
+			Destroy(coll.gameObject);
+			hasGun = true;
+		}
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Respawn")
 		{
@@ -121,20 +137,33 @@ public class CharMovement : MonoBehaviour {
 		if (coll.gameObject.tag == "Porcupine")
 		{
 			//Take Damage
-			heartScript.takeDamage(-2);
-			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 100);
+			heartScript.takeDamage(-1);
+			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
 		}
+		if (coll.gameObject.tag == "Enemy")
+		{
+			//Take Damage
+			heartScript.takeDamage(-2);
+			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 50);
+		}
+
 		if (coll.gameObject.tag == "Spike")
 		{
 			//Take Damage
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 100);
+			rb.AddForce(new Vector3(transform.localScale.x / -1, 4, 0) * 50);
 		}
 		//The Player has reached the exit
 		if (coll.gameObject.tag == "Finish")
 		{
 			Debug.Log("exit");
 			SceneManager.LoadScene("Level1");
+		}
+		if (coll.gameObject.tag == "HeartContainer")
+		{
+			Debug.Log("newHeart");
+			Destroy(coll.gameObject);
+			heartScript.pickupHeart();
 		}
 	}
 
@@ -150,21 +179,12 @@ public class CharMovement : MonoBehaviour {
 			rb.gravityScale = 1f;
 		}
 		//See if the player is still on the same jump
-     	else if(currJump == jumpID && Time.time - startTime < .2)
+     	else if(currJump == jumpID && Time.time - startTime < .3)
      	{
      		Debug.Log(Time.time - startTime);
-			rb.AddForce(Vector3.up * height * (Time.time - startTime));
-			rb.gravityScale -= .025f;
+			rb.AddForce(Vector3.up * height * (Time.time - startTime)/2);
+			rb.gravityScale -= .00000005f;
      	}
-		else if(!groundScript.onGround && hasJump > 0)
-		{
-			rb.velocity = new Vector2(0,0);
-			rb.AddForce(Vector3.up * height);
-			hasJump--;
-			groundScript.onGround = false;
-			animator.SetInteger("State", 2);
-			soundScript.PlaySound(0);
-		}
      }
 
      void flip(int direction)
