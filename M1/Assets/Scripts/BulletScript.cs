@@ -20,5 +20,10 @@ public class BulletScript : MonoBehaviour {
 			Destroy(coll.gameObject);
 			player.GetComponent<CharMovement>().hasJump++;
 		}
+		if (coll.gameObject.tag == "breakableWall")
+		{
+			Destroy(gameObject);
+			Destroy(coll.gameObject);
+		}
      }
 }

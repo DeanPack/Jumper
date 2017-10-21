@@ -82,4 +82,11 @@ public class HeartSystem : MonoBehaviour {
 		}
 		updateHearts();
 	}
+
+	public void pickupHeart()
+	{
+		startHearts++;
+		currentHealth += 4;
+		checkHealthAmount();
+	}
 }
