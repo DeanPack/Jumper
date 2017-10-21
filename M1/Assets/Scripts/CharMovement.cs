@@ -157,7 +157,7 @@ public class CharMovement : MonoBehaviour {
 		if (coll.gameObject.tag == "Finish")
 		{
 			Debug.Log("exit");
-			SceneManager.LoadScene("Level1");
+			SceneManager.LoadScene("Level2");
 		}
 		if (coll.gameObject.tag == "HeartContainer")
 		{
