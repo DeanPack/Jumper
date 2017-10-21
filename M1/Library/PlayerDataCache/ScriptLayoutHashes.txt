@@ -152,4 +152,4 @@ b6a4e0f46582e1b4ea27adb53405c4c7 Assembly-CSharp.dll:Tiled2Unity.SpriteDepthInMa
 2b5bd81c259c691324a17af9a3e97e85 Assembly-CSharp.dll:.BulletScript
 d290070ecf091336e70150a7db25d112 Assembly-CSharp.dll:Tiled2Unity.ObjectLayer
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.TmxObject
-566ffde637aa8668c16f6a99496f55ea Assembly-CSharp.dll:.CharMovement
+347fc3bd0580cab28134ef9a9e2a8550 Assembly-CSharp.dll:.CharMovement

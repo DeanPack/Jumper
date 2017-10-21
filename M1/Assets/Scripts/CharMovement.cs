@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CharMovement : MonoBehaviour {
 
 	public float speed = 4f;
-	public float height = 250f;
+	public float height = 270f;
 	//A reference to the bullet object so we can replicate it
  	public GameObject bullet;
  	//This is the characters rigidbody, how we access the physics of the character
@@ -28,7 +28,6 @@ public class CharMovement : MonoBehaviour {
 	public int jumpID = 0;
 	public float startTime = 0;
 	private bool hasGun = false;
-	private bool canMidair = false;
 
 	void Start()
 	{
@@ -157,7 +156,7 @@ public class CharMovement : MonoBehaviour {
 		if (coll.gameObject.tag == "Finish")
 		{
 			Debug.Log("exit");
-			SceneManager.LoadScene("Level2");
+			SceneManager.LoadScene("Level 2");
 		}
 		if (coll.gameObject.tag == "HeartContainer")
 		{
@@ -177,9 +176,10 @@ public class CharMovement : MonoBehaviour {
 			soundScript.PlaySound(0);
 			rb.AddForce(Vector3.up * height);
 			rb.gravityScale = 1f;
+			rb.velocity = new Vector2(0,0);
 		}
 		//See if the player is still on the same jump
-     	else if(currJump == jumpID && Time.time - startTime < .3)
+     	else if(currJump == jumpID && Time.time - startTime < .35)
      	{
      		Debug.Log(Time.time - startTime);
 			rb.AddForce(Vector3.up * height * (Time.time - startTime)/2);
