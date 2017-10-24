@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll)
      {
      	//If the player lands on a platform, play the landing animation and set onGround to true
-		if (coll.gameObject.tag == "Platform")
+		if (coll.gameObject.tag == "Platform" || coll.gameObject.tag == "Untagged")
 		{
 			Destroy(gameObject);
 		}
