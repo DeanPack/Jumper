@@ -18,6 +18,7 @@ public class CharMovement : MonoBehaviour {
  	public bool moving = false;
  	private bool facingRight = true;
  	public bool playAnim = false;
+	public GameObject assimilator;
 	private HeartSystem heartScript;
 	private GroundTester groundScript;
 	public GameObject soundHandler;
@@ -93,7 +94,7 @@ public class CharMovement : MonoBehaviour {
 				Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 				direction.Normalize();
 				//Spawn the bullet in front of the player
-				GameObject projectile = (GameObject)Instantiate(bullet, transform.position + direction * 2, Quaternion.identity);
+				GameObject projectile = (GameObject)Instantiate(bullet, assimilator.transform.position + direction * 2, Quaternion.identity);
 				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
 			}
 		}
@@ -125,8 +126,10 @@ public class CharMovement : MonoBehaviour {
 		}
 		if (coll.gameObject.tag == "Gun")
 		{
+			//pick up the gun
 			Destroy(coll.gameObject);
 			hasGun = true;
+			assimilator.active = true;
 		}
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Respawn")
