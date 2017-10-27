@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\AssimScript.cs" />
      <Compile Include="Assets\Scripts\BatMovement.cs" />
      <Compile Include="Assets\Scripts\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\ChargeSystem.cs" />
      <Compile Include="Assets\Scripts\CharMovement.cs" />
      <Compile Include="Assets\Scripts\followPlayer.cs" />
      <Compile Include="Assets\Scripts\GroundTester.cs" />

@@ -14,10 +14,13 @@ public class BulletScript : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		//If the player hits the death plane, then reset the level
-		if (coll.gameObject.tag == "Enemy")
+		if (coll.gameObject.tag == "Bat")
 		{
 			Destroy(gameObject);
 			Destroy(coll.gameObject);
+			//enable Bat images
+			player.GetComponent<ChargeSystem>().chargeImages[0].enabled = true;
+			player.GetComponent<ChargeSystem>().chargeImages[1].enabled = true;
 			player.GetComponent<CharMovement>().hasJump++;
 		}
 		if (coll.gameObject.tag == "breakableWall")

@@ -15,11 +15,13 @@ public class CharMovement : MonoBehaviour {
  	public int hasJump = 0;
  	//This reference to the animator allows us to access the animations and state variables
  	public Animator animator;
+ 	public Animator assimAnimator;
  	public bool moving = false;
  	private bool facingRight = true;
  	public bool playAnim = false;
 	public GameObject assimilator;
 	private HeartSystem heartScript;
+	private ChargeSystem chargeScript;
 	private GroundTester groundScript;
 	public GameObject soundHandler;
 	public GameObject groundTester;
@@ -34,6 +36,8 @@ public class CharMovement : MonoBehaviour {
 	{
 		//Get the heart system
 		heartScript = gameObject.GetComponent<HeartSystem>();
+		//Get the charge system
+		chargeScript = gameObject.GetComponent<ChargeSystem>();
 		soundScript = soundHandler.GetComponent<SoundHandler>();
 		groundScript = groundTester.GetComponent<GroundTester>();
 	}
@@ -79,13 +83,9 @@ public class CharMovement : MonoBehaviour {
 			//Play the jumping animation
 			moving = true;
 		}
-		if (Input.GetKeyDown(KeyCode.LeftShift) && !groundScript.onGround && hasJump > 0)
+		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
-			animator.SetInteger("State", 2);
-			soundScript.PlaySound(0);
-			rb.velocity = new Vector2(0, 0);
-			rb.AddForce(Vector3.up * height);
-			hasJump--;
+			useAbility();
 		}
 		if (hasGun)
 		{
@@ -93,7 +93,9 @@ public class CharMovement : MonoBehaviour {
 			{
 				Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 				direction.Normalize();
-				//Spawn the bullet in front of the player
+				//show the assimilator firing animation
+				assimAnimator.SetInteger("State", 1);
+				//Spawn the bullet in front of the assimilator
 				GameObject projectile = (GameObject)Instantiate(bullet, assimilator.transform.position + direction * 2, Quaternion.identity);
 				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
 			}
@@ -142,7 +144,7 @@ public class CharMovement : MonoBehaviour {
 			heartScript.takeDamage(-1);
 			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
 		}
-		if (coll.gameObject.tag == "Enemy")
+		if (coll.gameObject.tag == "Bat")
 		{
 			//Take Damage
 			heartScript.takeDamage(-2);
@@ -184,7 +186,6 @@ public class CharMovement : MonoBehaviour {
 		//See if the player is still on the same jump
      	else if(currJump == jumpID && Time.time - startTime < .35)
      	{
-     		Debug.Log(Time.time - startTime);
 			rb.AddForce(Vector3.up * height * (Time.time - startTime)/2);
 			rb.gravityScale -= .00000005f;
      	}
@@ -204,5 +205,17 @@ public class CharMovement : MonoBehaviour {
 	void playFootstep()
 	{
 		soundScript.PlaySound(4);
+	}
+	void useAbility()
+	{
+		if(!groundScript.onGround && hasJump > 0)
+		{
+			animator.SetInteger("State", 5);
+			soundScript.PlaySound(0);
+			rb.velocity = new Vector2(0, 0);
+			rb.AddForce(Vector3.up * height);
+			hasJump--;
+			chargeScript.useCharge("Bat");
+		}
 	}
 }

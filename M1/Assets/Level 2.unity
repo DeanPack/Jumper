@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 40666326}
   m_Layer: 0
   m_Name: Bat (4)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1426,6 +1426,7 @@ GameObject:
   - component: {fileID: 327662043}
   - component: {fileID: 327662042}
   - component: {fileID: 327662041}
+  - component: {fileID: 327662049}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1443,7 +1444,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1615,6 +1616,7 @@ MonoBehaviour:
   rb: {fileID: 327662044}
   hasJump: 0
   animator: {fileID: 327662046}
+  assimAnimator: {fileID: 1479493774}
   moving: 0
   playAnim: 0
   assimilator: {fileID: 1479493771}
@@ -1699,6 +1701,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &327662049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327662040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd70226162346408d9fc7909af26e189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeImages:
+  - {fileID: 2003504983}
+  - {fileID: 1639620205}
+  chargeSprites:
+  - {fileID: 21300000, guid: 08444e6752d684636baf80d46574bb75, type: 3}
+  - {fileID: 21300000, guid: aa713d69820724de1b66d92ff39856ab, type: 3}
+  - {fileID: 21300000, guid: 8769ffc49f6884ccfae8fa996ed3ab38, type: 3}
+  - {fileID: 21300000, guid: fd8afcfe602324a1fb7130dc1fcabb98, type: 3}
+  - {fileID: 21300000, guid: 35f08b62bbb5340a0bee95d8d9f8f13f, type: 3}
+  - {fileID: 21300000, guid: 7b56a5e5bc77743aa8a55be25e748e7c, type: 3}
+  - {fileID: 21300000, guid: dfc45da5184d847468f5fbc6c0e62f0f, type: 3}
+  - {fileID: 21300000, guid: 55220a82bec4247969b949fbf0b47979, type: 3}
+  - {fileID: 21300000, guid: ef5041aee57a34c37a1fed64625700b4, type: 3}
+  - {fileID: 21300000, guid: bba59618ff1b4408e9f2b1c39193816d, type: 3}
+  - {fileID: 21300000, guid: bce0eeac9c1e149c9bc3fe22ca8a963f, type: 3}
+  - {fileID: 21300000, guid: 7e58f3365f356469f9777bb6f3cd922c, type: 3}
+  - {fileID: 21300000, guid: e150528e8bc944d9da773da92e859716, type: 3}
+  - {fileID: 21300000, guid: d357b683d60cf4dd0ac0228b7d050413, type: 3}
+  - {fileID: 21300000, guid: 8a88265108ce240f4b13c37f4c2a04d9, type: 3}
+  - {fileID: 21300000, guid: 6f50321876503491fb67cc35c05130db, type: 3}
+  - {fileID: 21300000, guid: b215d90f7ee374c6c9ec699b4fe21029, type: 3}
+  - {fileID: 21300000, guid: 47e342850e97a4f3a8192d140cc8b8ad, type: 3}
+  - {fileID: 21300000, guid: 7f407703be3474f718c4f13745d09ec8, type: 3}
+  - {fileID: 21300000, guid: 7f854f33ae41b46efaf93a7cadf35c10, type: 3}
+  - {fileID: 21300000, guid: 29dd31ebf4d43492aa9cc3047dbc454c, type: 3}
+  - {fileID: 21300000, guid: c86318e23ef6b40e784529f4ba00b7b3, type: 3}
+  - {fileID: 21300000, guid: 4db2ec15af5be400cac2c93e392035dc, type: 3}
+  - {fileID: 21300000, guid: 005b55e8ae7964117a0dd996bc09b404, type: 3}
 --- !u!1 &338612239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2044,7 @@ GameObject:
   - component: {fileID: 433413606}
   m_Layer: 0
   m_Name: Bat (9)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2231,7 +2272,7 @@ GameObject:
   - component: {fileID: 483427969}
   m_Layer: 0
   m_Name: Bat (10)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2397,7 +2438,7 @@ GameObject:
   - component: {fileID: 570179110}
   m_Layer: 0
   m_Name: Bat (3)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2571,7 +2612,7 @@ GameObject:
   - component: {fileID: 573612524}
   m_Layer: 0
   m_Name: Bat (6)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3570,6 +3611,7 @@ RectTransform:
   m_Children:
   - {fileID: 1501338890}
   - {fileID: 1613229000}
+  - {fileID: 1300532401}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4139,7 +4181,7 @@ GameObject:
   - component: {fileID: 931215929}
   m_Layer: 0
   m_Name: Bat (5)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4264,7 +4306,7 @@ GameObject:
   - component: {fileID: 959300058}
   m_Layer: 0
   m_Name: Bat (7)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4772,7 +4814,7 @@ GameObject:
   - component: {fileID: 1039875755}
   m_Layer: 0
   m_Name: Bat (8)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5644,7 +5686,7 @@ GameObject:
   - component: {fileID: 1282328172}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5817,6 +5859,100 @@ Transform:
   m_Father: {fileID: 1610173364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1300532400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1300532401}
+  - component: {fileID: 1300532404}
+  - component: {fileID: 1300532403}
+  - component: {fileID: 1300532402}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1300532401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1300532400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2003504982}
+  - {fileID: 1639620204}
+  m_Father: {fileID: 802298885}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -99}
+  m_SizeDelta: {x: 166.18, y: 72.899994}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1300532402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1300532400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 80, y: 80}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
+--- !u!114 &1300532403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1300532400}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1300532404
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1300532400}
 --- !u!1 &1340286928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,7 +6240,7 @@ GameObject:
   - component: {fileID: 1375072898}
   m_Layer: 0
   m_Name: Bat (11)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6362,7 +6498,7 @@ GameObject:
   - component: {fileID: 1411256992}
   m_Layer: 0
   m_Name: Bat (12)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,7 +6618,7 @@ GameObject:
   - component: {fileID: 1436073545}
   m_Layer: 0
   m_Name: Bat (2)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7715,6 +7851,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613228999}
+--- !u!1 &1639620203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1639620204}
+  - component: {fileID: 1639620206}
+  - component: {fileID: 1639620205}
+  m_Layer: 5
+  m_Name: Charges(1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1639620204
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639620203}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300532401}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1639620205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639620203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 005b55e8ae7964117a0dd996bc09b404, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1639620206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639620203}
 --- !u!1 &1652585763
 GameObject:
   m_ObjectHideFlags: 0
@@ -8664,7 +8868,7 @@ GameObject:
   - component: {fileID: 1912632042}
   m_Layer: 0
   m_Name: Bat (1)
-  m_TagString: Enemy
+  m_TagString: Bat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9194,6 +9398,74 @@ Transform:
   m_Father: {fileID: 1096016464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2003504981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2003504982}
+  - component: {fileID: 2003504984}
+  - component: {fileID: 2003504983}
+  m_Layer: 5
+  m_Name: Charges
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2003504982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003504981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300532401}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2003504983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003504981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 005b55e8ae7964117a0dd996bc09b404, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2003504984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003504981}
 --- !u!1 &2021698060
 GameObject:
   m_ObjectHideFlags: 0
