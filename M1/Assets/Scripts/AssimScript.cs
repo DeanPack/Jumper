@@ -25,4 +25,9 @@ public class AssimScript : MonoBehaviour {
 		float yPos = Mathf.Sin(Mathf.Deg2Rad * angle) * distance;
 		transform.localPosition = new Vector3(player.transform.position.x + xPos * 4, player.transform.position.y + yPos * 4, 0);
 	}
+
+	void stopShooting()
+	{
+		GetComponent<Animator>().SetInteger("State",0);
+	}
 }
