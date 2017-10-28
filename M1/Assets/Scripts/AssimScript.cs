@@ -26,8 +26,8 @@ public class AssimScript : MonoBehaviour {
 		transform.localPosition = new Vector3(player.transform.position.x + xPos * 4, player.transform.position.y + yPos * 4, 0);
 	}
 
-	void stopShooting()
+	void stopAnimation()
 	{
-		GetComponent<Animator>().SetInteger("State",0);
+		GetComponent<Animator>().SetInteger("State", 0);
 	}
 }

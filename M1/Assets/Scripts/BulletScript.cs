@@ -21,7 +21,8 @@ public class BulletScript : MonoBehaviour {
 			//enable Bat images
 			player.GetComponent<ChargeSystem>().chargeImages[0].enabled = true;
 			player.GetComponent<ChargeSystem>().chargeImages[1].enabled = true;
-			player.GetComponent<CharMovement>().hasJump++;
+			player.GetComponent<ChargeSystem>().chargeType = "Bat";
+			player.GetComponent<ChargeSystem>().charges = 2;
 		}
 		if (coll.gameObject.tag == "breakableWall")
 		{

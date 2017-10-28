@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class ChargeSystem : MonoBehaviour {
 
 	public Image[] chargeImages;
-	public Sprite[] chargeSprites;
+	public Sprite[] batSprites;
 	private int nextSprite = 23;
+	private int currentImg;
+	private int maxImg;
+	public int charges;
+	public string chargeType;
+
 	// Use this for initialization
 	void Start () {
 		foreach(Image image in chargeImages)
@@ -21,23 +26,53 @@ public class ChargeSystem : MonoBehaviour {
 		
 	}
 
-	public void useCharge(string chargeType)
+	public void useCharge()
 	{
-		int startingIndex = 0;
-		int length = 0;
 		switch (chargeType)
 		{
 			case "Bat":
-				InvokeRepeating("fillBat",2f,.01f);
+				maxImg = 2;
+				if (chargeImages[1].sprite != batSprites[0])
+				{
+					//Set 2nd image to empty, and put first image to the place that the first image is.
+					chargeImages[currentImg].sprite = batSprites[23];
+					currentImg = 0;
+					CancelInvoke();
+				}
+				else
+				{
+					currentImg = 1;
+				}
+				charges--;
+				InvokeRepeating("fillBat",0,.1f);	
 			break;
 			case "Porcupine":
-				startingIndex = 24;
+				maxImg = 1;
+				//startingIndex = 24;
 			break;
 		}
 	}
 	void fillBat()
 	{
-		chargeImages[1].sprite = chargeSprites[nextSprite];
-		//nextSprite--;
+		if (nextSprite >= 0)
+		{
+			chargeImages[currentImg].sprite = batSprites[nextSprite];
+			nextSprite--;
+		}
+		if (nextSprite == -1)
+		{
+			nextSprite = 23;
+			charges++;
+			if (currentImg == 0)
+			{
+				currentImg++;
+			}
+			else
+			{
+				CancelInvoke();
+			}
+			Debug.Log("Current image" + currentImg);
+			Debug.Log("Charges" + charges);
+		}
 	}
 }

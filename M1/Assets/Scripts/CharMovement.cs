@@ -32,6 +32,7 @@ public class CharMovement : MonoBehaviour {
 	public float startTime = 0;
 	private bool hasGun = false;
 
+
 	void Start()
 	{
 		//Get the heart system
@@ -95,6 +96,7 @@ public class CharMovement : MonoBehaviour {
 				direction.Normalize();
 				//show the assimilator firing animation
 				assimAnimator.SetInteger("State", 1);
+				soundScript.PlaySound(3);
 				//Spawn the bullet in front of the assimilator
 				GameObject projectile = (GameObject)Instantiate(bullet, assimilator.transform.position + direction * 2, Quaternion.identity);
 				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
@@ -208,14 +210,14 @@ public class CharMovement : MonoBehaviour {
 	}
 	void useAbility()
 	{
-		if(!groundScript.onGround && hasJump > 0)
+		if(!groundScript.onGround && chargeScript.charges > 0)
 		{
 			animator.SetInteger("State", 5);
-			soundScript.PlaySound(0);
+			//soundScript.PlaySound(0);
 			rb.velocity = new Vector2(0, 0);
-			rb.AddForce(Vector3.up * height);
-			hasJump--;
-			chargeScript.useCharge("Bat");
+			rb.AddForce(Vector3.up * height*1.5f);
+			assimAnimator.SetInteger("State", 2);
+			chargeScript.useCharge();
 		}
 	}
 }

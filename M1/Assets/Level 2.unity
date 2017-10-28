@@ -1715,7 +1715,8 @@ MonoBehaviour:
   chargeImages:
   - {fileID: 2003504983}
   - {fileID: 1639620205}
-  chargeSprites:
+  batSprites:
+  - {fileID: 21300000, guid: 005b55e8ae7964117a0dd996bc09b404, type: 3}
   - {fileID: 21300000, guid: 08444e6752d684636baf80d46574bb75, type: 3}
   - {fileID: 21300000, guid: aa713d69820724de1b66d92ff39856ab, type: 3}
   - {fileID: 21300000, guid: 8769ffc49f6884ccfae8fa996ed3ab38, type: 3}
@@ -1739,7 +1740,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29dd31ebf4d43492aa9cc3047dbc454c, type: 3}
   - {fileID: 21300000, guid: c86318e23ef6b40e784529f4ba00b7b3, type: 3}
   - {fileID: 21300000, guid: 4db2ec15af5be400cac2c93e392035dc, type: 3}
-  - {fileID: 21300000, guid: 005b55e8ae7964117a0dd996bc09b404, type: 3}
 --- !u!1 &338612239
 GameObject:
   m_ObjectHideFlags: 0
