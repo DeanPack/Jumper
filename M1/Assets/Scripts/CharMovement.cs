@@ -146,6 +146,12 @@ public class CharMovement : MonoBehaviour {
 			heartScript.takeDamage(-1);
 			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
 		}
+		if (coll.gameObject.tag == "rockMonster")
+		{
+			//Take Damage
+			heartScript.takeDamage(-1);
+			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
+		}
 		if (coll.gameObject.tag == "Bat")
 		{
 			//Take Damage

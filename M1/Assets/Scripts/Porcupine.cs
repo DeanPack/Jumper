@@ -20,7 +20,7 @@ public class Porcupine : MonoBehaviour {
 		{
     			// Avoid any reload.
  		}
-		else if(distance > Vector3.Distance(player.transform.position, this.transform.position))
+		else if(distance > Vector3.Distance(player.transform.position, this.transform.position) && player.transform.position.y >= this.transform.position.y)
 		{
 			animator.SetInteger("State",1);
 		}
@@ -63,6 +63,10 @@ public class Porcupine : MonoBehaviour {
      	if(coll.gameObject.tag == "Wall")
      	{
      		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
+     	}
+     	if(coll.gameObject.tag == "Spike")
+     	{
+     		Destroy(gameObject);
      	}
      }
 }
