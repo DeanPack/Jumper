@@ -1742,10 +1742,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4db2ec15af5be400cac2c93e392035dc, type: 3}
   charges: 0
   chargeType: 
-<<<<<<< HEAD
-  player: {fileID: 327662040}
-=======
->>>>>>> cb436de4e805a8df666b03b5e6ef2029de01acb4
 --- !u!1 &338612239
 GameObject:
   m_ObjectHideFlags: 0
