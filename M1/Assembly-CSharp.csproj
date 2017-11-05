@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\HeartSystem.cs" />
      <Compile Include="Assets\Scripts\Porcupine.cs" />
      <Compile Include="Assets\Scripts\ReachingTheEdge.cs" />
+     <Compile Include="Assets\Scripts\RockMonster.cs" />
      <Compile Include="Assets\Scripts\SoundHandler.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />

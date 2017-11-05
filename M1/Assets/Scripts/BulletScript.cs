@@ -24,11 +24,12 @@ public class BulletScript : MonoBehaviour {
 			player.GetComponent<ChargeSystem>().chargeType = "Bat";
 			player.GetComponent<ChargeSystem>().charges = 2;
 		}
-		if (coll.gameObject.tag == "rockGem")
+		if (coll.collider.gameObject.tag == "rockGem")
 		{
+			Debug.Log("HERE");
 			Destroy(gameObject);
-			Destroy(coll.gameObject.transform.parent.gameObject);
-			Destroy(coll.gameObject);
+			Destroy(coll.collider.gameObject.transform.parent.gameObject);
+			Destroy(coll.collider.gameObject);
 			//enable Bat images
 		}
 		if (coll.gameObject.tag == "breakableWall")
