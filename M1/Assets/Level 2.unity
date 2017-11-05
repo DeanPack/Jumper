@@ -1560,7 +1560,7 @@ MonoBehaviour:
   audioClip: []
   jumpID: 0
   startTime: 0
-  cursorTexture: {fileID: 2800000, guid: 5b0c6834b7e2c496baf9042b8ee4d9df, type: 3}
+  cursorTexture: {fileID: 2800000, guid: c50927f64a57c1840bc46e2087b87c40, type: 3}
 --- !u!95 &327662046
 Animator:
   serializedVersion: 3
