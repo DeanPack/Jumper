@@ -78,7 +78,7 @@ public class HeartSystem : MonoBehaviour {
 		if (currentHealth < 1)
 		{
 			//The Player is dead
-			SceneManager.LoadScene("Level1");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 		updateHearts();
 	}

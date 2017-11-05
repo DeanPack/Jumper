@@ -20,6 +20,11 @@ public class GroundTester : MonoBehaviour {
 		charScript = player.GetComponent<CharMovement>();
 	}
 
+	void Update()
+	{
+		//this.transform.position = new Vector3(player.transform.position.x + .5f, player.transform.position.y - 1f, 0);
+	}
+
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Platform")

@@ -31,6 +31,7 @@ public class CharMovement : MonoBehaviour {
 	public int jumpID = 0;
 	public float startTime = 0;
 	private bool hasGun = false;
+	public Texture2D cursorTexture;
 
 
 	void Start()
@@ -90,16 +91,18 @@ public class CharMovement : MonoBehaviour {
 		}
 		if (hasGun)
 		{
+			Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width / 2, cursorTexture.height / 2), CursorMode.Auto);
 			if (Input.GetMouseButtonDown(0))
 			{
 				Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 				direction.Normalize();
+				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 				//show the assimilator firing animation
 				assimAnimator.SetInteger("State", 1);
 				soundScript.PlaySound(3);
 				//Spawn the bullet in front of the assimilator
 				GameObject projectile = (GameObject)Instantiate(bullet, assimilator.transform.position + direction * 2, Quaternion.identity);
-				projectile.GetComponent<Rigidbody2D>().velocity = direction * speed * 5;
+				projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle),Mathf.Sin(Mathf.Deg2Rad * angle)) * speed * 5;
 			}
 		}
          //If nothing is being pressed, play the idle animation

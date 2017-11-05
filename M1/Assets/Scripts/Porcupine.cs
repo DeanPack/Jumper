@@ -12,9 +12,12 @@ public class Porcupine : MonoBehaviour {
 	public GameObject TurnSensor;
 	private float oldPos;
 	public Animator animator;
+	public Rigidbody2D rb;
 
 	// Update is called once per frame
 	void Update () {
+	if (Vector3.Dot(transform.up, Vector3.down) < 0)
+	{
 		oldPos = transform.position.x;
 		if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("PorcupineUndefending"))
 		{
@@ -38,6 +41,14 @@ public class Porcupine : MonoBehaviour {
 		}
 		flip(oldPos - transform.position.x);
 	}
+	else
+	{
+		Debug.Log("here");
+		//make the porcupine flip back over
+		rb.AddForce(transform.up * 200f);
+        this.transform.Rotate(0,0,130);
+	}
+	}
 
 	void flip(float direction)
      {
@@ -56,7 +67,7 @@ public class Porcupine : MonoBehaviour {
      	{
      		//maybe if I want it to react to the player later
      	}
-     	if(coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "Porcupine")
+		if(coll.gameObject.tag == "Bat" || coll.gameObject.tag == "Porcupine" || coll.gameObject.tag == "RockMonster")
      	{
      		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
      	}
