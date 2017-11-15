@@ -16,6 +16,11 @@ public class BulletScript : MonoBehaviour {
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Bat")
 		{
+			if (player.GetComponent<CharMovement>().firstTime == 0)
+			{
+				player.GetComponent<CharMovement>().firstTime++;
+				player.GetComponent<TextBox>().changeText("Press shift while midair to use bat powers");
+			}
 			Destroy(gameObject);
 			Destroy(coll.gameObject);
 			//enable Bat images

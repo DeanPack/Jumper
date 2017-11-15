@@ -12,6 +12,7 @@ public class ChargeSystem : MonoBehaviour {
 	private int maxImg;
 	public int charges;
 	public string chargeType;
+	public GameObject assimilator;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class ChargeSystem : MonoBehaviour {
 
 	public void useCharge()
 	{
+		assimilator = GameObject.Find("Assimilator");
 		switch (chargeType)
 		{
 			case "Bat":
@@ -56,9 +58,15 @@ public class ChargeSystem : MonoBehaviour {
 	{
 		if (nextSprite >= 0)
 		{
+			if (nextSprite == 21)
+			{
+				Debug.Log("HERE");
+				assimilator.GetComponent<Animator>().SetInteger("State", 3);
+			}
 			chargeImages[currentImg].sprite = batSprites[nextSprite];
 			nextSprite--;
 		}
+		
 		if (nextSprite == -1)
 		{
 			nextSprite = 23;
@@ -70,6 +78,7 @@ public class ChargeSystem : MonoBehaviour {
 			else
 			{
 				CancelInvoke();
+				assimilator.GetComponent<Animator>().SetInteger("State", 0);
 			}
 			Debug.Log("Current image" + currentImg);
 			Debug.Log("Charges" + charges);

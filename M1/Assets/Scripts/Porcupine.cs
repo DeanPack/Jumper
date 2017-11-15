@@ -67,7 +67,7 @@ public class Porcupine : MonoBehaviour {
      	{
      		//maybe if I want it to react to the player later
      	}
-		if(coll.gameObject.tag == "Bat" || coll.gameObject.tag == "Porcupine" || coll.gameObject.tag == "RockMonster")
+		if(coll.gameObject.tag == "Bat" || coll.gameObject.tag == "Porcupine" || coll.gameObject.tag == "RockMonster" || coll.gameObject.tag == "HeartContainer" || coll.gameObject.tag == "Coin")
      	{
      		TurnSensor.GetComponent<ReachingTheEdge>().turn = true;
      	}

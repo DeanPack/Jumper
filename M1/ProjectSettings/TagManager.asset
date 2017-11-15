@@ -17,6 +17,10 @@ TagManager:
   - Bat
   - rockMonster
   - rockGem
+  - TutorialControls
+  - TutorialJump
+  - MushroomTop
+  - MushroomPunch
   layers:
   - Default
   - TransparentFX

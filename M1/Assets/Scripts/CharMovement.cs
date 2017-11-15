@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 //This script manages the characters movement and actions
 public class CharMovement : MonoBehaviour {
 
-	public float speed = 4f;
-	public float height = 210f;
+	public float speed = 6f;
+	public float height = 300f;
 	//A reference to the bullet object so we can replicate it
  	public GameObject bullet;
  	//This is the characters rigidbody, how we access the physics of the character
@@ -26,18 +26,22 @@ public class CharMovement : MonoBehaviour {
 	public GameObject soundHandler;
 	public GameObject groundTester;
 	private SoundHandler soundScript;
+	private TextBox textScript;
 	public AudioSource audioSource;
 	public AudioClip[] audioClip;
 	public int jumpID = 0;
 	public float startTime = 0;
 	private bool hasGun = false;
 	public Texture2D cursorTexture;
-
+	public int firstTime = 0;
+	private int tutorialTime;
 
 	void Start()
 	{
 		//Get the heart system
 		heartScript = gameObject.GetComponent<HeartSystem>();
+		//get the text box
+		textScript = gameObject.GetComponent<TextBox>();
 		//Get the charge system
 		chargeScript = gameObject.GetComponent<ChargeSystem>();
 		soundScript = soundHandler.GetComponent<SoundHandler>();
@@ -57,7 +61,7 @@ public class CharMovement : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
-			transform.position += Vector3.left * speed * Time.deltaTime;
+			rb.velocity = new Vector2(-speed, rb.velocity.y);
 			//only play the running animation if the user is on the ground
 			if (groundScript.onGround)
 			{
@@ -69,7 +73,7 @@ public class CharMovement : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
 		{
-			transform.position += Vector3.right * speed * Time.deltaTime;
+			rb.velocity = new Vector2(speed, rb.velocity.y);
 			//only play the running animation if the user is on the ground
 			if (groundScript.onGround)
 			{
@@ -105,8 +109,10 @@ public class CharMovement : MonoBehaviour {
 				projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle),Mathf.Sin(Mathf.Deg2Rad * angle)) * speed * 5;
 			}
 		}
-         //If nothing is being pressed, play the idle animation
-      	 changeAnimation(0);
+		//If nothing is being pressed, play the idle animation
+		if (rb.velocity.x < (speed) && rb.velocity.x >(-speed))
+			rb.velocity = new Vector2(0, rb.velocity.y);
+		changeAnimation(0);
      }
 
      //This is to make sure that the landing animation finishes before starting another animation
@@ -115,9 +121,11 @@ public class CharMovement : MonoBehaviour {
 		if (groundScript.onGround && !moving && !playAnim && !groundScript.falling)
          {
          	animator.SetInteger("State",state);
+			//InvokeRepeating("Timeout", 0, 1f);
          }
          else
          {
+			//CancelInvoke();
 			playAnim = false;
          }
      }
@@ -125,7 +133,29 @@ public class CharMovement : MonoBehaviour {
      //This is automatically called when the player enters a collision with an object
      void OnCollisionEnter2D(Collision2D coll)
      {
+		if (coll.gameObject.tag == "TutorialControls")
+		{
+			textScript.changeText("Use A and D to move left and right");
+			Destroy(coll.gameObject);
+		}
+		if (coll.gameObject.tag == "TutorialJump")
+		{
+			textScript.changeText("Press space to jump");
+			Destroy(coll.gameObject);
+		}
 		//Pick up a coin
+		if (coll.gameObject.tag == "MushroomTop")
+		{
+			rb.AddForce(new Vector2(0, 500));
+			coll.gameObject.GetComponent<Animator>().SetInteger("State", 1);
+			animator.SetInteger("State", 2);
+			soundScript.PlaySound(0);
+		}
+		if (coll.gameObject.tag == "MushroomPunch")
+		{
+			heartScript.takeDamage(-1);
+			rb.AddForce(new Vector3(transform.localScale.x / -10, 8, 0) * 50);
+		}
 		if (coll.gameObject.tag == "Coin")
 		{
 			Destroy(coll.gameObject);
@@ -137,6 +167,7 @@ public class CharMovement : MonoBehaviour {
 			Destroy(coll.gameObject);
 			hasGun = true;
 			assimilator.active = true;
+			textScript.changeText("Left click to shoot");
 		}
 		//If the player hits the death plane, then reset the level
 		if (coll.gameObject.tag == "Respawn")
@@ -186,20 +217,19 @@ public class CharMovement : MonoBehaviour {
      {
 		if (groundScript.onGround)
      	{
-     		startTime = time;
+			startTime = time;
 			groundScript.onGround= false;
 			animator.SetInteger("State", 2);
 			soundScript.PlaySound(0);
 			rb.AddForce(Vector3.up * height);
 			rb.gravityScale = 1f;
-			rb.velocity = new Vector2(0,0);
 		}
 		//See if the player is still on the same jump
-     	else if(currJump == jumpID && Time.time - startTime < .35)
+     	else if(currJump == jumpID && Time.time - startTime < .25)
      	{
-			rb.AddForce(Vector3.up * height * (Time.time - startTime)/2);
-			rb.gravityScale -= .00000005f;
-     	}
+			rb.gravityScale = 1 - (Time.time - startTime);
+			rb.AddForce(Vector3.up * 5);
+		}
      }
 
      void flip(int direction)
@@ -217,6 +247,7 @@ public class CharMovement : MonoBehaviour {
 	{
 		soundScript.PlaySound(4);
 	}
+
 	void useAbility()
 	{
 		if(!groundScript.onGround && chargeScript.charges > 0)
@@ -224,9 +255,21 @@ public class CharMovement : MonoBehaviour {
 			animator.SetInteger("State", 5);
 			//soundScript.PlaySound(0);
 			rb.velocity = new Vector2(0, 0);
-			rb.AddForce(Vector3.up * height*1.5f);
+			rb.AddForce(Vector3.up * height*1f);
 			assimAnimator.SetInteger("State", 2);
 			chargeScript.useCharge();
 		}
 	}
+	/*
+	void Timeout()
+	{
+		tutorialTime--;
+		if (tutorialTime < 0)
+		{
+			textScript.refreshText();
+			tutorialTime = 5;
+			CancelInvoke();
+		}
+	}
+	*/
 }
