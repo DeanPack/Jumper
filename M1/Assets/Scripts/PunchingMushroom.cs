@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PunchingMushroom : MonoBehaviour {
 	public float distance = 2f;
-	public GameObject arm;
+	public GameObject leftArm;
+	public GameObject rightArm;
 	public GameObject player;
 	bool facingRight = false;
 	void Update()
@@ -18,13 +19,17 @@ public class PunchingMushroom : MonoBehaviour {
 
 	public void throwPunch()
 	{
-		arm.active = true;
+		if (facingRight)
+			rightArm.active = true;
+		else
+			leftArm.active = true;
 		GetComponent<Animator>().SetInteger("State", 0);
 	}
 
 	public void deactivatePunch()
 	{
-		arm.active = false;
+		rightArm.active = false;
+		leftArm.active = false;
 	}
 	public void stopBouncing()
 	{

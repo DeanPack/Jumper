@@ -21,6 +21,8 @@ TagManager:
   - TutorialJump
   - MushroomTop
   - MushroomPunch
+  - Heart
+  - FallingStalactite
   layers:
   - Default
   - TransparentFX

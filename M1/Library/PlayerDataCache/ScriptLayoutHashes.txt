@@ -48,6 +48,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+3da415ade2f4b522ffdb1a2e502c5d3c Assembly-CSharp.dll:.PunchingMushroom
 8ff8e4f2fdfb53cf0cef85f24f6f7740 Assembly-CSharp.dll:Tiled2Unity.GroupLayer
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.RectangleObject
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.PolylineObject
@@ -156,6 +157,8 @@ b6a4e0f46582e1b4ea27adb53405c4c7 Assembly-CSharp.dll:Tiled2Unity.SpriteDepthInMa
 2b5bd81c259c691324a17af9a3e97e85 Assembly-CSharp.dll:.BulletScript
 d290070ecf091336e70150a7db25d112 Assembly-CSharp.dll:Tiled2Unity.ObjectLayer
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.TmxObject
-984f6e5ae8f0abcc9a381b3ec7a3148a Assembly-CSharp.dll:.CharMovement
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BouncyMushroom
-b184d27bed211290e86768d2a5549761 Assembly-CSharp.dll:.PunchingMushroom
+984f6e5ae8f0abcc9a381b3ec7a3148a Assembly-CSharp.dll:.CharMovement
+3e060fdc844a371a957643f94df3dbb3 Assembly-CSharp.dll:.BreakingStalactite
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StalactiteParticles
+739625ca7ad50e207fa2b4cc8c4b94a5 Assembly-CSharp.dll:.FallingStalactite

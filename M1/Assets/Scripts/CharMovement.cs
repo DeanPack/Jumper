@@ -211,6 +211,11 @@ public class CharMovement : MonoBehaviour {
 			Destroy(coll.gameObject);
 			heartScript.pickupHeart();
 		}
+		if (coll.gameObject.tag == "Heart")
+		{
+			Destroy(coll.gameObject);
+			heartScript.takeDamage(4);
+		}
 	}
 
      void jump(float time, int currJump)
