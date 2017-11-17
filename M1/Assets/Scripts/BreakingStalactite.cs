@@ -9,7 +9,7 @@ public class BreakingStalactite : MonoBehaviour {
 	public GameObject stalactite;
 	// Update is called once per frame
 	void Update () {
-		if (Mathf.Abs(player.transform.position.x) - Mathf.Abs(transform.position.x) < 2)
+		if (Mathf.Abs(player.transform.position.x) - Mathf.Abs(transform.position.x) < 2 && Mathf.Abs(player.transform.position.y) - Mathf.Abs(transform.position.y) < 4)
 		{
 			GetComponent<Animator>().SetInteger("State", 1);
 		}
@@ -18,10 +18,11 @@ public class BreakingStalactite : MonoBehaviour {
 	void Fall()
 	{
 		//Create the particles
-		GameObject particle = (GameObject)Instantiate(particles, transform.position + transform.up/2, Quaternion.identity);
+		GameObject particle = Instantiate(particles, (transform.position + transform.up/2), Quaternion.identity) as GameObject;
 		particle.tag = "Untagged";
-		GameObject fall = (GameObject)Instantiate(stalactite, transform.position, Quaternion.identity);
+		GameObject fall = Instantiate(stalactite, transform.position, Quaternion.identity) as GameObject;
 		fall.AddComponent<Rigidbody2D>();
+		fall.GetComponent<Rigidbody2D>().mass = 1000;
 		Destroy(gameObject);
 	}
 }

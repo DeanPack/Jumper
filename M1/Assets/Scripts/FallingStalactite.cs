@@ -10,7 +10,7 @@ public class FallingStalactite : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Platform")
 		{
-			GameObject particle = (GameObject)Instantiate(particles, transform.position + transform.up * -0.8f, Quaternion.identity);
+			GameObject particle = Instantiate(particles, transform.position + transform.up * -0.8f, Quaternion.identity) as GameObject;
 			particle.transform.localScale *= -1;
 			particle.tag = "Untagged";
 			GameObject platform = (GameObject)Instantiate(stalactitePlatform, transform.position, Quaternion.identity);

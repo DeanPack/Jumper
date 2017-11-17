@@ -154,7 +154,12 @@ public class CharMovement : MonoBehaviour {
 		if (coll.gameObject.tag == "MushroomPunch")
 		{
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x / -10, 8, 0) * 50);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 		if (coll.gameObject.tag == "Coin")
 		{
@@ -178,26 +183,46 @@ public class CharMovement : MonoBehaviour {
 		{
 			//Take Damage
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 		if (coll.gameObject.tag == "rockMonster")
 		{
 			//Take Damage
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x/-4,1,0) * 50);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 		if (coll.gameObject.tag == "Bat")
 		{
 			//Take Damage
 			heartScript.takeDamage(-2);
-			rb.AddForce(new Vector3(transform.localScale.x / -4, 1, 0) * 50);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 
 		if (coll.gameObject.tag == "Spike")
 		{
 			//Take Damage
 			heartScript.takeDamage(-1);
-			rb.AddForce(new Vector3(transform.localScale.x / -1, 4, 0) * 50);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 		//The Player has reached the exit
 		if (coll.gameObject.tag == "Finish")

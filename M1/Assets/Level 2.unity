@@ -7232,7 +7232,7 @@ GameObject:
   - component: {fileID: 1313784435}
   - component: {fileID: 1313784434}
   m_Layer: 0
-  m_Name: StalactitePlanting7
+  m_Name: StalactitePlanting
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7574,7 +7574,7 @@ GameObject:
   - component: {fileID: 1365948337}
   - component: {fileID: 1365948340}
   m_Layer: 0
-  m_Name: StalactiteParticles1
+  m_Name: StalactiteParticles
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -34,6 +34,7 @@ public class GroundTester : MonoBehaviour {
 			animator.SetInteger("State", 4);
 			charScript.playAnim = true;
 			soundScript.PlaySound(1);
+			player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 		}
 	}
 	void OnCollisionExit2D(Collision2D coll)
