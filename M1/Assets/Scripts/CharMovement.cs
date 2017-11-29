@@ -35,6 +35,7 @@ public class CharMovement : MonoBehaviour {
 	public Texture2D cursorTexture;
 	public int firstTime = 0;
 	private int tutorialTime;
+	public float recoilTime;
 
 	void Start()
 	{
@@ -59,6 +60,8 @@ public class CharMovement : MonoBehaviour {
 			animator.SetInteger("State", 3);
 			groundScript.falling = true;
 		}
+		if(Time.time - recoilTime > 0.4)
+		{
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
 			rb.velocity = new Vector2(-speed, rb.velocity.y);
@@ -92,6 +95,7 @@ public class CharMovement : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			useAbility();
+		}
 		}
 		if (hasGun)
 		{
@@ -240,6 +244,16 @@ public class CharMovement : MonoBehaviour {
 		{
 			Destroy(coll.gameObject);
 			heartScript.takeDamage(4);
+		}
+		if (coll.gameObject.tag == "FallingStalactite")
+		{
+			heartScript.takeDamage(-4);
+			if (facingRight)
+			{
+				rb.velocity = new Vector2(-7, 3);
+			}
+			else
+			rb.velocity = new Vector2(7, 3);
 		}
 	}
 

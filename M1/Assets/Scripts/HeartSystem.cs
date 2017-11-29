@@ -13,6 +13,7 @@ public class HeartSystem : MonoBehaviour {
 	public int healthPerHeart = 4;
 	public Image[] heartImages;
 	public Sprite[] heartSprites;
+	public GameObject player;
 	// Use this for initialization
 	void Start ()
 	{
@@ -79,6 +80,10 @@ public class HeartSystem : MonoBehaviour {
 		{
 			//The Player is dead
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+		if(damage < 0)
+		{
+			player.GetComponent<CharMovement>().recoilTime = Time.time;
 		}
 		updateHearts();
 	}
